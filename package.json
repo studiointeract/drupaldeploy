@@ -22,10 +22,9 @@
   },
   "homepage": "https://github.com/studiointeract/drupal-git-deploy",
   "bin": {
-    "studiointeract": "./bin/studiointeract.js"
+    "studiointeract": "bin/studiointeract.js"
   },
   "dependencies": {
     "shelljs": "^0.5.1"
-  },
-  "devDependencies": {}
+  }
 }
