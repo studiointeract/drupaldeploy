@@ -4,7 +4,8 @@
 
 # Clone repository if first deploy.
 if [ ! -d <%= installLocation %>/current ]; then
-    git clone -b master --single-branch <%= repository %> <%= installLocation %>/current
+  cd <%= installLocation %>
+  git clone -b master <%= repository %> current
 else
   sudo rm -rf <%= installLocation %>/tmp
 
@@ -14,7 +15,7 @@ else
   # Pull latest changes.
   cd <%= installLocation %>/tmp
   git checkout -- .
-  git pull origin master
+  git pull origin <%= branch %>
   cd <%= installLocation %>
 
   # Switch versions, current => previous && tmp => current.
@@ -24,18 +25,18 @@ else
 fi
 
 # Set default permissions.
-sudo chmod -R 644 <%= installLocation %>/current/<%= web %>
-sudo chmod -R 640 <%= installLocation %>/current/<%= web %>/index.php
+sudo chmod -R 754 <%= installLocation %>/current/<%= web %>
+sudo chmod -R 760 <%= installLocation %>/current/<%= web %>/index.php
 sudo chmod -R 775 <%= installLocation %>/default/files
-sudo chmod 644 <%= installLocation %>/default/settings.php
+sudo chmod 764 <%= installLocation %>/default/settings.php
 
 # Set group.
 sudo chgrp -R <%= group %> <%= installLocation %>/current/<%= web %>
 sudo chgrp -R <%= group %> <%= installLocation %>/default
 
 # Remove default settings.
-rm -rf <%= installLocation %>/tmp/<%= web %>/sites/default
+# sudo rm -rf <%= installLocation %>/tmp/<%= web %>/sites/default
 
 # Create symbolic link to settings and files.
-rm <%= installLocation %>/current/<%= web %>/sites/default
-ln -sf <%= installLocation %>/default <%= installLocation %>/current/<%= web %>/sites/default
+sudo rm <%= installLocation %>/current/<%= web %>/sites/default
+sudo ln -sf <%= installLocation %>/default <%= installLocation %>/current/<%= web %>/sites/default
