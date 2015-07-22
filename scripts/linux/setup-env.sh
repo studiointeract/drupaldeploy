@@ -16,6 +16,11 @@ sudo apt-get install git
 # Create files and settings.
 mkdir -p <%= installLocation %>/default/files
 
+# Move in existing files if overwriting an old project.
+if [ -d <%= documentRoot %>/sites/default/files ]; then
+  cp -R <%= documentRoot %>/sites/default/files <%= installLocation %>/default
+fi
+
 # Create DocumentRoot tree (var/www/...) if it doesn't exists.
 mkdir -p <%= documentRoot %>
 # Remove the DocumentRoot folder in the DocumentRoot tree
