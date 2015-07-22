@@ -10,26 +10,14 @@ fi;
 
 # SETUP
 
-# Remove existing current.
-rm -rf ~/current
-
-# Clone repository.
-git clone -b master --single-branch <%= repository %> ~/current
-
 # Create files and settings.
-mkdir ~/default
-touch ~/default/settings.php
-sudo chmod 444 ~/default/settings.php
-mkdir ~/default/files
-sudo chmod -R 755 ~/default/files
+mkdir -p <%= installLocation %>/default
+mkdir <%= installLocation %>/default/files
 
-# Remove default settings.
-rm -rf ~/tmp/web/sites/default
+# Create DocumentRoot tree (var/www/...) if it doesn't exists.
+mkdir -p <%= documentRoot %>
+# Remove the DocumentRoot folder in the DocumentRoot tree
+rm -rf <%= documentRoot %>
 
-# Create symbolic link to settings and files.
-cd ~/current/web/sites/
-ln -s ~/default default
-cd ~
-
-# Create symbolic link to web root.
-ln -sf ~/current/web public_html
+# Create symbolic link to Virtual Host DocumentRoot.
+ln -sf <%= installLocation %>/current/<%= web %> <%= documentRoot %>

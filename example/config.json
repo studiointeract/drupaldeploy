@@ -3,13 +3,28 @@
   "servers": [
     {
       "host": "hostname",
-      "username": "root",
-      "sshOptions": {
-      #  "agentForward": true
-      }
+      "username": "root"
     }
   ],
 
-  // Location of Drupal web root in the repository.
-  "web": "web"
+  // The repository SSH clone url of your project.
+  "repository": "git@github.org:studiointeract/drupal-git-deploy.git",
+
+  // The branch you want to deploy.
+  "branch": "master",
+
+  // Location of web root in the repository.
+  "web": "web",
+
+  // Virtual Host DocumentRoot on the server.
+  "documentRoot": "~/public_html",
+
+  // Location of repository and files on the server (you need write permission).
+  "installLocation": "~",
+
+  // Location to your Drupal settings
+  "settings": "./settings.php",
+
+  // Group for the user running Apache on the server.
+  "group": "www-data"
 }
