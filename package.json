@@ -1,28 +1,28 @@
 {
   "name": "studiointeract",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
-    "patch-release": "npm version patch && npm publish && git push --follow-tags"
+    "setup": "Setup server",
+    "deploy": "Deploy to server"
   },
-  "description": "Studio Interact Drupal deployment tool using git and ssh",
-  "main": "index.js",
+  "description": "Drupal deployment tool using git and ssh",
   "repository": {
     "type": "git",
-    "url": "http://github.com/studiointeract/drupal-git-deploy"
+    "url": "git://github.com/studiointeract/drupal-git-deploy"
   },
   "keywords": [
     "drupal",
     "git",
     "deployment"
   ],
-  "author": "Tim Brandin",
+  "author": "Tim Brandin <tim.brandin@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/studiointeract/drupal-git-deploy/issues"
   },
   "homepage": "https://github.com/studiointeract/drupal-git-deploy",
   "bin": {
-    "studiointeract": "bin/commit.js"
+    "studiointeract": "./bin/studiointeract.js"
   },
   "dependencies": {
     "shelljs": "^0.5.1"
