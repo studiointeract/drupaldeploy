@@ -45,7 +45,7 @@ passphrase.
 
 Here's the process:
 
-* First remove your `pem` field from the `mup.json`. So, your `mup.json` only has the username and host only.
+* First remove your `pem` field from the `config.json`. So, your `config.json` only has the username and host only.
 * Then start a ssh agent with `eval $(ssh-agent)`
 * Then add your ssh key with `ssh-add <path-to-key>`
 * Then you'll asked to enter the passphrase to the key
