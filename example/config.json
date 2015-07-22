@@ -1,14 +1,15 @@
 {
-  // Server authentication info
+  // Server authentication info.
   "servers": [
     {
       "host": "hostname",
       "username": "root",
-      "password": "password"
-      // or pem file (ssh based authentication)
-      //"pem": "~/.ssh/id_rsa"
+      "sshOptions": {
+      #  "agentForward": true
+      }
     }
   ],
 
-  "web": "../web"
+  // Location of Drupal web root in the repository.
+  "web": "web"
 }
