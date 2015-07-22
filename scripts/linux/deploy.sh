@@ -27,8 +27,9 @@ fi
 # Set default permissions.
 sudo chmod -R 754 <%= installLocation %>/current/<%= web %>
 sudo chmod -R 760 <%= installLocation %>/current/<%= web %>/index.php
+sudo chmod -R 754 <%= installLocation %>/default
 sudo chmod -R 775 <%= installLocation %>/default/files
-sudo chmod 764 <%= installLocation %>/default/settings.php
+sudo chmod 744 <%= installLocation %>/default/settings.php
 
 # Set group.
 sudo chgrp -R <%= group %> <%= installLocation %>/current/<%= web %>
