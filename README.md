@@ -49,5 +49,5 @@ Here's the process:
 * Then start a ssh agent with `eval $(ssh-agent)`
 * Then add your ssh key with `ssh-add <path-to-key>`
 * Then you'll asked to enter the passphrase to the key
-* After that simply invoke `mup` commands and they'll just work
+* After that simply invoke `studiointeract` commands and they'll just work
 * Once you've deployed your app kill the ssh agent with `ssh-agent -k`
