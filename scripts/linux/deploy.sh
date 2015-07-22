@@ -37,7 +37,5 @@ sudo chgrp -R <%= group %> <%= installLocation %>/default
 rm -rf <%= installLocation %>/tmp/<%= web %>/sites/default
 
 # Create symbolic link to settings and files.
-# cd <%= installLocation %>/current/<%= web %>/sites/
 rm <%= installLocation %>/current/<%= web %>/sites/default
 ln -sf <%= installLocation %>/default <%= installLocation %>/current/<%= web %>/sites/default
-# cd <%= installLocation %>
