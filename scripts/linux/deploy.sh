@@ -36,7 +36,7 @@ sudo chgrp -R <%= group %> <%= installLocation %>/current/<%= web %>
 sudo chgrp -R <%= group %> <%= installLocation %>/default
 
 # Remove default settings.
-# sudo rm -rf <%= installLocation %>/tmp/<%= web %>/sites/default
+sudo rm -rf <%= installLocation %>/current/<%= web %>/sites/default
 
 # Create symbolic link to settings and files.
 sudo rm <%= installLocation %>/current/<%= web %>/sites/default
