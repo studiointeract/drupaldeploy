@@ -28,10 +28,26 @@ studiointeract setup
 
 ### Deploy
 
-Deploy your Drupal site using git pull and ssh.
+Deploy your Drupal project using git pull and ssh.
 
 ```bash
 studiointeract deploy
+```
+
+### Rsync
+
+Rsync files from another Drupal project.
+
+```bash
+studiointeract rsync
+```
+
+### SQL Sync
+
+Synchronize database from another Drupal project.
+
+```bash
+studiointeract sql-sync
 ```
 
 > Notice! You need to setup ssh-agent (see below) for this to work, and have permissions to pull from your repository using your own ssh key.
