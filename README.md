@@ -56,7 +56,7 @@ drupaldeploy sql-sync
 
 > This only tested with Mac/Linux
 
-With the help of `ssh-agent`, `mup` can use SSH keys encrypted with a
+With the help of `ssh-agent`, `drupaldeploy` can use SSH keys encrypted with a
 passphrase.
 
 Here's the process:
