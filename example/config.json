@@ -39,6 +39,7 @@
   // I.e. user@remote:/home/user/public_html/sites/default/files/
   "rsyncFilesPath": "",
 
+  // (Optional) SQL Sync database from the sql-sync command.
   "sqlSync": {
     "host": "hostname",
     "user": "root",
