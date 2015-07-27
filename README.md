@@ -1,11 +1,11 @@
-# studiointeract
+# Drupal Deploy
 
 A Drupal deployment tool using git and ssh
 
 ## Installation
 
 ```bash
-npm install -g studiointeract
+npm install -g drupaldeploy
 ```
 
 ## Getting started
@@ -15,7 +15,7 @@ npm install -g studiointeract
 Creates a config.json and settings.php.
 
 ```bash
-studiointeract init
+drupaldeploy init
 ```
 
 ### Setup
@@ -23,7 +23,7 @@ studiointeract init
 Setup the server with your configuration and install git.
 
 ```bash
-studiointeract setup
+drupaldeploy setup
 ```
 
 ### Deploy
@@ -31,7 +31,7 @@ studiointeract setup
 Deploy your Drupal project using git pull and ssh.
 
 ```bash
-studiointeract deploy
+drupaldeploy deploy
 ```
 
 ### Rsync
@@ -39,7 +39,7 @@ studiointeract deploy
 Rsync files from another Drupal project or folder.
 
 ```bash
-studiointeract rsync
+drupaldeploy rsync
 ```
 
 ### SQL Sync
@@ -47,7 +47,7 @@ studiointeract rsync
 Synchronize database from another Drupal project.
 
 ```bash
-studiointeract sql-sync
+drupaldeploy sql-sync
 ```
 
 > Notice! You need to setup ssh-agent (see below) for this to work, and have permissions to pull from your repository using your own ssh key.
@@ -65,5 +65,5 @@ Here's the process:
 * Then start a ssh agent with `eval $(ssh-agent)`
 * Then add your ssh key with `ssh-add <path-to-key>`
 * Then you'll asked to enter the passphrase to the key
-* After that simply invoke `studiointeract` commands and they'll just work
+* After that simply invoke `drupaldeploy` commands and they'll just work
 * Once you've deployed your app kill the ssh agent with `ssh-agent -k`

@@ -1,10 +1,10 @@
 {
-  "name": "studiointeract",
+  "name": "drupaldeploy",
   "version": "0.3.2",
   "description": "Drupal deployment tool using git and ssh",
   "repository": {
     "type": "git",
-    "url": "git://github.com/studiointeract/drupal-git-deploy"
+    "url": "git://github.com/studiointeract/drupaldeploy"
   },
   "keywords": [
     "drupal",
@@ -14,11 +14,11 @@
   "author": "Tim Brandin <tim.brandin@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/studiointeract/drupal-git-deploy/issues"
+    "url": "https://github.com/studiointeract/drupaldeploy/issues"
   },
-  "homepage": "https://github.com/studiointeract/drupal-git-deploy",
+  "homepage": "https://github.com/studiointeract/drupaldeploy",
   "bin": {
-    "studiointeract": "bin/studiointeract.js"
+    "drupaldeploy": "bin/drupaldeploy.js"
   },
   "dependencies": {
     "async": "^0.9.0",
