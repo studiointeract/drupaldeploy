@@ -7,6 +7,7 @@
     }
   ],
 
+  // Database settings for settings.php.
   "database": {
     "database": "drupaldb",
     "username": "drupaluser",
@@ -41,8 +42,12 @@
 
   // (Optional) SQL Sync database from the sql-sync command.
   "sqlSync": {
-    "host": "hostname",
-    "user": "root",
+    // (Optional) SQL Sync from a remote database using SSH.
+    "remote": {
+      "host": "hostname",
+      "user": "root"
+    },
+    // Database settings for database to sync from.
     "database": {
       "database": "drupaldb",
       "username": "drupaluser",

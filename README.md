@@ -36,7 +36,7 @@ studiointeract deploy
 
 ### Rsync
 
-Rsync files from another Drupal project.
+Rsync files from another Drupal project or folder.
 
 ```bash
 studiointeract rsync
