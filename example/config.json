@@ -26,5 +26,8 @@
   "settings": "./settings.php",
 
   // Group for the user running Apache on the server.
-  "group": "www-data"
+  "group": "www-data",
+
+  // (Optional) Rsync files from another site on setup (Example: /var/www/old_site/sites/default/files).
+  "rsyncFilesPath": ""
 }
