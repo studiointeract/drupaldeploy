@@ -7,8 +7,8 @@ var ActionsRegistry = require('../lib/actions');
 var helpers = require('../lib/helpers');
 require('colors');
 
-console.log('\nStudio Interact: Drupal Deployments'.bold.blue);
-console.log('-----------------------------------\n'.bold.blue);
+console.log('\nDrupal Deploy: Production and Stage Deployments'.bold.blue);
+console.log('-----------------------------------------------\n'.bold.blue);
 
 var action = process.argv[2];
 if(action == 'init') {
