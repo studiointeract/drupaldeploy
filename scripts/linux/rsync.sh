@@ -2,5 +2,5 @@
 
 # Move in existing files from other project files folder.
 if [ -n <%= rsyncFilesPath %> ]; then
-  rsync -a <%= rsyncFilesPath %> <%= installLocation %>/default/
+  rsync -az --delete <%= rsyncFilesPath %> <%= installLocation %>/default/files
 fi
