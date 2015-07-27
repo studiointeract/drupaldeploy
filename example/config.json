@@ -7,6 +7,12 @@
     }
   ],
 
+  "database": {
+    "database": "drupaldb",
+    "username": "drupaluser",
+    "password": "password"
+  },
+
   // The repository SSH clone url of your project.
   "repository": "git@github.org:studiointeract/drupal-git-deploy.git",
 
@@ -29,7 +35,17 @@
   "group": "www-data",
 
   // (Optional) Rsync files from another site on setup.
-  // Example: /var/www/old_site/sites/default/files/
-  // Example: user@remote:/home/user/public_html/sites/default/files/
-  "rsyncFilesPath": ""
+  // I.e. /var/www/old_site/sites/default/files/
+  // I.e. user@remote:/home/user/public_html/sites/default/files/
+  "rsyncFilesPath": "",
+
+  "sqlSync": {
+    "host": "hostname",
+    "user": "root",
+    "database": {
+      "database": "drupaldb",
+      "username": "drupaluser",
+      "password": "password"
+    }
+  }
 }

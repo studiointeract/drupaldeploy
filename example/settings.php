@@ -5,9 +5,9 @@ $databases = array (
   array (
     'default' =>
     array (
-      'database' => 'drupal',
-      'username' => 'user',
-      'password' => 'password',
+      'database' => '<%= database %>',
+      'username' => '<%= username %>',
+      'password' => '<%= password %>',
       'host' => 'localhost',
       'port' => '3306',
       'driver' => 'mysql',
