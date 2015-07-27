@@ -1,6 +1,6 @@
 {
   "name": "studiointeract",
-  "version": "0.2.10",
+  "version": "0.3.0",
   "description": "Drupal deployment tool using git and ssh",
   "repository": {
     "type": "git",
