@@ -1,4 +1,4 @@
-# Drupal Deploy
+# drupaldeploy
 
 A Drupal deployment tool using git and ssh
 
