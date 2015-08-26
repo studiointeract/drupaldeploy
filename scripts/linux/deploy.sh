@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Setup no strict host key checking.
+GITHOST=$(echo "<%= repository %>" | sed -n 's/git@//p' | sed -n 's/\/.*//p')
+echo $GITHOST
+if ! grep -q $GITHOST ~/.ssh/config; then
+  echo -e "Host $GITHOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+fi
+
 # DEPLOY
 
 # Clone repository if first deploy.
