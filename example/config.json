@@ -7,13 +7,6 @@
     }
   ],
 
-  // Database settings for settings.php.
-  "database": {
-    "database": "drupaldb",
-    "username": "drupaluser",
-    "password": "password"
-  },
-
   // The repository SSH clone url of your project.
   "repository": "git@github.org:studiointeract/drupal-git-deploy.git",
 
@@ -27,31 +20,11 @@
   "documentRoot": "~/public_html",
 
   // Location of repository and files on the server (you need write permission).
-  "installLocation": "~",
+  "installLocation": "/home/root",
 
-  // Location to your Drupal settings
+  // Location of your Drupal settings
   "settings": "./settings.php",
 
   // Group for the user running Apache on the server.
-  "group": "www-data",
-
-  // (Optional) Rsync files from another site on setup.
-  // I.e. /var/www/old_site/sites/default/files/
-  // I.e. user@remote:/home/user/public_html/sites/default/files/
-  "rsyncFilesPath": "",
-
-  // (Optional) SQL Sync database from the sql-sync command.
-  "sqlSync": {
-    // (Optional) SQL Sync from a remote database using SSH.
-    "remote": {
-      "host": "hostname",
-      "user": "root"
-    },
-    // Database settings for database to sync from.
-    "database": {
-      "database": "drupaldb",
-      "username": "drupaluser",
-      "password": "password"
-    }
-  }
+  "group": "www-data"
 }
