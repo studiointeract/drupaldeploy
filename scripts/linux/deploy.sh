@@ -14,7 +14,6 @@ if [ ! -d <%= installLocation %>/current ]; then
   cd <%= installLocation %>
   git clone -b master <%= repository %> current
 else
-  #sudo rm -rf <%= installLocation %>/temp
   rm -rf <%= installLocation %>/temp
 
   # Copy source files.
@@ -33,30 +32,25 @@ else
 fi
 
 # Set default permissions.
-#sudo chmod -R 754 <%= installLocation %>/current/<%= web %>
-#sudo chmod -R 760 <%= installLocation %>/current/<%= web %>/index.php
-#sudo chmod -R 754 <%= installLocation %>/default
-#sudo chmod -R 775 <%= installLocation %>/default/files
-#sudo chmod 744 <%= installLocation %>/default/settings.php
-chmod -R 754 <%= installLocation %>/current/<%= web %>
-chmod -R 760 <%= installLocation %>/current/<%= web %>/index.php
-chmod -R 754 <%= installLocation %>/default
-chmod -R 775 <%= installLocation %>/default/files
+find <%= installLocation %>/current/<%= web %> -type f -exec chmod 644 {} +
+find <%= installLocation %>/current/<%= web %> -type d -exec chmod 755 {} +
+#chmod -R 754 <%= installLocation %>/current/<%= web %>
+#chmod -R 760 <%= installLocation %>/current/<%= web %>/index.php
+
+find <%= installLocation %>/default -type f -exec chmod 644 {} +
+find <%= installLocation %>/default -type d -exec chmod 755 {} +
+# chmod -R 754 <%= installLocation %>/default
+# chmod -R 775 <%= installLocation %>/default/files
 chmod 744 <%= installLocation %>/default/settings.php
 
 
 # Set group.
-#sudo chgrp -R <%= group %> <%= installLocation %>/current/<%= web %>
-#sudo chgrp -R <%= group %> <%= installLocation %>/default
 chgrp -R <%= group %> <%= installLocation %>/current/<%= web %>
 chgrp -R <%= group %> <%= installLocation %>/default
 
 # Remove default settings.
-#sudo rm -rf <%= installLocation %>/current/<%= web %>/sites/default
 rm -rf <%= installLocation %>/current/<%= web %>/sites/default
 
 # Create symbolic link to settings and files.
-#sudo rm <%= installLocation %>/current/<%= web %>/sites/default
-#sudo ln -sf <%= installLocation %>/default <%= installLocation %>/current/<%= web %>/sites/default
 rm <%= installLocation %>/current/<%= web %>/sites/default
 ln -sf <%= installLocation %>/default <%= installLocation %>/current/<%= web %>/sites/default
