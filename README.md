@@ -34,22 +34,6 @@ Deploy your Drupal project using git pull and ssh.
 drupaldeploy deploy
 ```
 
-### Rsync
-
-Rsync files from another Drupal project or folder.
-
-```bash
-drupaldeploy rsync
-```
-
-### SQL Sync
-
-Synchronize database from another Drupal project.
-
-```bash
-drupaldeploy sql-sync
-```
-
 > Notice! You need to setup ssh-agent (see below) for this to work, and have permissions to pull from your repository using your own ssh key.
 
 #### SSH keys with passphrase (or ssh-agent support)
