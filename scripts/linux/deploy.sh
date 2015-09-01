@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Setup no strict host key checking.
-GITHOST=$(echo "<%= repository %>" | sed -n 's/git@//p' | sed -n 's/\/.*//p')
+GITHOST=$(echo "<%= repository %>" | sed -n 's/git@//p' | sed -n 's/:.*//p')
 echo $GITHOST
 if ! grep -q $GITHOST ~/.ssh/config; then
+  mkdir -p ~/.ssh
   echo -e "Host $GITHOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 fi
 
@@ -26,15 +27,18 @@ else
   # Copy source files.
   if [ -d <%= installLocation %>/previous ]; then
     mv <%= installLocation %>/previous <%= installLocation %>/temp
-    rsync -az <%= installLocation %>/current/ <%= installLocation %>/temp/
+    $SUDO rsync -az <%= installLocation %>/current/ <%= installLocation %>/temp/
   else
-    cp -R <%= installLocation %>/current <%= installLocation %>/temp
+    $SUDO cp -R <%= installLocation %>/current <%= installLocation %>/temp
   fi
 
   # Pull latest changes.
   cd <%= installLocation %>/temp
-  git checkout -- .
+  $SUDO chmod -R 777 <%= installLocation %>/temp
+  $SUDO git reset --hard
+  $SUDO git clean -fd
   git pull origin <%= branch %>
+  $SUDO chmod -R 755 <%= installLocation %>/temp
   cd <%= installLocation %>
 
   # Switch versions, current => previous && temp => current.
@@ -50,7 +54,6 @@ find <%= installLocation %>/current/<%= web %> -type d -exec $SUDO chmod 755 {} 
 find <%= installLocation %>/default -type f -exec $SUDO chmod 644 {} +
 find <%= installLocation %>/default -type d -exec $SUDO chmod 755 {} +
 $SUDO chmod 744 <%= installLocation %>/default/settings.php
-
 
 # Set group and owner.
 $SUDO chown -R <%= group %>:<%= group %> <%= installLocation %>/current/<%= web %>
