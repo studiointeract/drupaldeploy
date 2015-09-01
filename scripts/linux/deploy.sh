@@ -17,7 +17,12 @@ else
   rm -rf <%= installLocation %>/temp
 
   # Copy source files.
-  cp -R <%= installLocation %>/current <%= installLocation %>/temp
+  if [ ! -d <%= installLocation %>/previous ]; then
+    mv <%= installLocation %>/previous <%= installLocation %>/temp
+    rsync -az <%= installLocation %>/current <%= installLocation %>/temp
+  else
+    cp -R <%= installLocation %>/current <%= installLocation %>/temp
+  fi
 
   # Pull latest changes.
   cd <%= installLocation %>/temp
