@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Use sudo if available.
+SUDO=""
+CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1 | grep "load" | wc -l)
+if [ ${CAN_I_RUN_SUDO} -gt 0 ]; then
+  SUDO="sudo"
+fi;
+
 # Install or upgrade old versions of Git.
 sudo apt-get install git
 
@@ -21,3 +28,9 @@ rm -rf <%= documentRoot %>
 
 # Create symbolic link to Virtual Host DocumentRoot.
 ln -sf <%= installLocation %>/current/<%= web %> <%= documentRoot %>
+
+# Give write permissions to be able to overwrite this later.
+if [ -f <%= installLocation %>/default/settings.php ]; then
+  $SUDO chmod a+w <%= installLocation %>/default/settings.php
+  # Drupal will automatically secure this file after the upload.
+fi
