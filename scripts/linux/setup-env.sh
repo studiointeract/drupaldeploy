@@ -32,5 +32,10 @@ ln -sf <%= installLocation %>/current/<%= web %> <%= documentRoot %>
 # Give write permissions to be able to overwrite this later.
 if [ -f <%= installLocation %>/default/settings.php ]; then
   $SUDO chmod a+w <%= installLocation %>/default/settings.php
-  # Drupal will automatically secure this file after the upload.
+  # Drupal will automatically secure this file after the deployment.
+fi
+
+# Remove any potentially old htaccess file.
+if [ -f <%= installLocation %>/.htaccess ]; then
+  $SUDO rm <%= installLocation %>/.htaccess
 fi

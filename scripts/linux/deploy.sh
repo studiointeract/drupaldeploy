@@ -67,3 +67,11 @@ if [ -d <%= installLocation %>/current/<%= web %>/sites/default ]; then
   $SUDO rm <%= installLocation %>/current/<%= web %>/sites/default
 fi
 $SUDO ln -sf <%= installLocation %>/default <%= installLocation %>/current/<%= web %>/sites/default
+
+# Create a symbolic link to the .htaccess file.
+if [ -f <%= installLocation %>/.htaccess ]; then
+  if [ -f <%= installLocation %>/current/<%= web %>/.htaccess ]; then
+    $SUDO rm <%= installLocation %>/current/<%= web %>/.htaccess
+  fi
+  $SUDO ln -sf <%= installLocation %>/.htaccess <%= installLocation %>/current/<%= web %>/.htaccess
+fi
