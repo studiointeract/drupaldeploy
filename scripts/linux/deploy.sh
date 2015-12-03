@@ -34,7 +34,7 @@ else
 
   # Pull latest changes.
   cd <%= installLocation %>/temp
-  $SUDO chmod -R 777 <%= installLocation %>/temp
+  $SUDO chmod -R 777 .
   $SUDO git reset --hard
   $SUDO git clean -fd
   git pull origin <%= branch %>
