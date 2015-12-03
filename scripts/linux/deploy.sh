@@ -15,6 +15,9 @@ if [ ${CAN_I_RUN_SUDO} -gt 0 ]; then
   SUDO="sudo"
 fi;
 
+# Ignore file permission changes.
+git config --global core.fileMode false
+
 # DEPLOY
 
 # Clone repository if first deploy.
@@ -37,7 +40,6 @@ else
   $SUDO chmod -R 777 <%= installLocation %>/temp
   $SUDO git reset --hard
   $SUDO git clean -fd
-  git config core.fileMode false
   $SUDO chmod -R 777 <%= installLocation %>/temp
   git pull origin <%= branch %>
   $SUDO chmod -R 755 <%= installLocation %>/temp
