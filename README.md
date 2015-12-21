@@ -18,6 +18,41 @@ Creates a config.json and settings.php.
 drupaldeploy init
 ```
 
+Example config.json:
+```json
+{
+  // Server authentication info.
+  "servers": [
+    {
+      "host": "hostname",
+      "username": "root"
+    }
+  ],
+
+  // The repository SSH clone url of your project.
+  "repository": "git@github.org:studiointeract/drupal-git-deploy.git",
+
+  // The branch you want to deploy.
+  "branch": "master",
+
+  // Location of web root in the repository.
+  "web": "web",
+
+  // Virtual Host DocumentRoot on the server.
+  "documentRoot": "~/public_html",
+
+  // Location of repository and files on the server (you need write permission).
+  "installLocation": "/home/root",
+
+  // Location of your Drupal settings
+  "settings": "./settings.php",
+
+  // Group for the user running Apache on the server.
+  "group": "www-data"
+}
+```
+
+
 ### Setup
 
 Setup the server with your configuration and install git.
