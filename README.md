@@ -73,7 +73,7 @@ drupaldeploy deploy
 
 #### SSH keys with passphrase (or ssh-agent support)
 
-> This only tested with Mac/Linux
+> This only tested with Mac/Linux/Windows 10
 
 With the help of `ssh-agent`, `drupaldeploy` can use SSH keys encrypted with a
 passphrase.
@@ -81,8 +81,8 @@ passphrase.
 Here's the process:
 
 * First remove your `pem` field from the `config.json`. So, your `config.json` only has the username and host only.
-* Then start a ssh agent with `eval $(ssh-agent)`
-* Then add your ssh key with `ssh-add <path-to-key>`
-* Then you'll asked to enter the passphrase to the key
+* Then start a ssh agent with `eval $(ssh-agent)` or ``eval `ssh-agent.exe` `` on Windows 10.
+* Then add your ssh key with `ssh-add <path-to-key>`, i.e. `ssh-add ~/.ssh/id_rsa.pub`.
+* Then you'll asked to enter the passphrase to the key if you're using one.
 * After that simply invoke `drupaldeploy` commands and they'll just work
 * Once you've deployed your app kill the ssh agent with `ssh-agent -k`
