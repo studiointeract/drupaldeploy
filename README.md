@@ -82,7 +82,7 @@ Here's the process:
 
 * First remove your `pem` field from the `config.json`. So, your `config.json` only has the username and host only.
 * Then start a ssh agent with `eval $(ssh-agent)` or ``eval `ssh-agent.exe` `` on Windows 10.
-* Then add your ssh key with `ssh-add <path-to-key>`, i.e. `ssh-add ~/.ssh/id_rsa.pub`.
+* Then add your ssh key with `ssh-add <path-to-key>`, i.e. `ssh-add ~/.ssh/id_rsa`.
 * Then you'll asked to enter the passphrase to the key if you're using one.
 * After that simply invoke `drupaldeploy` commands and they'll just work
 * Once you've deployed your app kill the ssh agent with `ssh-agent -k`
