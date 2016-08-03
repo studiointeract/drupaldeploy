@@ -20,7 +20,7 @@ fi;
 # Clone repository if first deploy.
 if [ ! -d <%= installLocation %>/current ]; then
   cd <%= installLocation %>
-  git clone -b master <%= repository %> current
+  git clone -b <%= branch %> <%= repository %> current
 else
   $SUDO rm -rf <%= installLocation %>/temp
 
@@ -33,14 +33,24 @@ else
   fi
 
   # Pull latest changes.
+  # Clone the current version to a temporary folder.
   cd <%= installLocation %>/temp
   $SUDO chmod -R 777 <%= installLocation %>/temp
+  # Switch repository (it could have changed).
+  $SUDO git remote rm origin
+  $SUDO git remote add origin <%= repository %>
   # Ignore file permission changes.
   $SUDO git config core.fileMode false
   $SUDO git reset --hard
   $SUDO git clean -fd
+  # Switch branch (it could have changed).
+  git fetch --all
+  $SUDO git reset --hard origin/<%= branch %>
+  $SUDO git checkout <%= branch %>
+  # Pull latest changes.
   $SUDO chmod -R 777 <%= installLocation %>/temp
   git pull origin <%= branch %>
+  git branch | grep -v "<%= branch %>" | xargs sudo git branch -D
   $SUDO chmod -R 755 <%= installLocation %>/temp
   cd <%= installLocation %>
 

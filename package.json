@@ -1,6 +1,6 @@
 {
   "name": "drupaldeploy",
-  "version": "0.4.12",
+  "version": "0.4.14",
   "description": "Drupal deployment tool using git and ssh",
   "repository": {
     "type": "git",
